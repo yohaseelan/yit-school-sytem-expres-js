@@ -2,7 +2,7 @@
   "name": "yit-school-sytem-expres",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,12 +13,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/yohaseelan/yit-school-sytem-expres-js/issues"
   },
   "homepage": "https://github.com/yohaseelan/yit-school-sytem-expres-js#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "mysql2": "^3.22.5"
   }
