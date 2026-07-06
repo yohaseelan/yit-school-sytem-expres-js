@@ -1,27 +1,12 @@
-import express from 'express';
-import connection from './db.js';
+import express from "express";
 const app = express();
-const port = 3000;
 
+app.use(express.json());
 
+import studentRoutes from "./routes/student.routes.js";
 
+app.use("/api/students", studentRoutes);
 
-
-
-
-app.get('/', (req, res) => {
-
-    connection.query('SELECT * FROM grades where id=1', (err, results) => {
-        if (err) {
-            console.error('Error executing query:', err);
-            res.status(500).send('Internal Server Error');
-            return;
-        }
-
-        res.json(results);
-    });
-});
-
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
 });
