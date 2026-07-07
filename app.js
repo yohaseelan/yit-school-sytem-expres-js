@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 
-import studentRoutes from "./routes/student.routes.js";
+import studentRoutes from "./routes/studentRoutes.js";
 
 app.use("/api/students", studentRoutes);
 

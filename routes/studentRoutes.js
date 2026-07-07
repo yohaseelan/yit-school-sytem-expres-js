@@ -1,5 +1,5 @@
 import express from "express";
-import { index, show, store, update,destroy } from "../controller/student.controller.js";
+import { index, show, store, update,destroy } from "../controller/studentController.js";
 const router = express.Router();
 
 router.get("/", index);
