@@ -1,13 +1,29 @@
 import express from "express";
+import mydb from "./config/database.js";
 const app = express();
 
 app.use(express.json());
 
-import studentRoutes from "./routes/studentRoutes.js";
 
-app.use("/api/students", studentRoutes);
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
     res.send("Welcome to the Student API");
+});
+app.get("/students", (req, res) => {
+    mydb.query("SELECT * FROM students", (err, result) => {
+        if (err) throw err;
+        res.render("student/index", { students: result });
+    });
+
+});
+
+app.get("/students/:id", (req, res) => {
+    mydb.query("SELECT * FROM students WHERE id = ?", [req.params.id], (err, result) => {
+        if (err) throw err;
+        res.render("student/show", { student: result[0] });
+    });
+
 });
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
