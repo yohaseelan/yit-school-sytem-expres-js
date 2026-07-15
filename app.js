@@ -1,12 +1,14 @@
 import express from "express";
 import mydb from "./config/database.js";
+import layout from "express-ejs-layouts";
 const app = express();
 
 app.use(express.json());
 
 
 app.set("view engine", "ejs");
-
+app.use(layout);
+app.set("layout", "layouts/main");
 app.get("/", (req, res) => {
     res.send("Welcome to the Student API");
 });
